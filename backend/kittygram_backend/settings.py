@@ -1,11 +1,10 @@
 # flake8: noqa
 import os
 from pathlib import Path
-from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = os.environ.config('SECRET_KEY', 'Piter_detka')
 
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
