@@ -162,5 +162,4 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: "Деплой успешно выполнен! \n\nКоммит: ${{ github.event.commits[0].message }} 
-        \nАвтор: ${{ github.actor }}\nСсылка на коммит: https://github.com/${{ github.repository }}/commit/${{github.sha}}"
+        message: Деплой успешно выполнен!
