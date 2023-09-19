@@ -11,24 +11,27 @@ services:
     env_file: .env
     volumes:
       - pg_data:/var/lib/postgresql/data
+
   backend:
     depends_on:
       - db
-    image: ilik1799/kittygram_backend
+    image: ilik1799/kittygram_backend:latest
     env_file: .env
     volumes:
       - static:/static
       - media:/media
+
   frontend:
-    image: ilik1799/kittygram_frontend
+    image: ilik1799/kittygram_frontend:latest
     env_file: .env
     command: cp -r /app/build/. /frontend_static/
     volumes:
       - static:/frontend_static
+
   gateway:
     depends_on:
-    - backend
-    image: ilik1799/kittygram_gateway
+      - backend
+    image: ilik1799/kittygram_gateway:latest
     env_file: .env
     volumes:
       - static:/static
